@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style type="text/css">
+		input{
+			width: 70%;
+			height: 8%;
+			border: solid 2px black;
+			text-align: right;
+		}
+		button{
+			background-color: black;
+			border: solid 2px white;
+			color: white;
+			height: 70px;
+			width: 70px;
+			padding-bottom: 0px;
+			font-style: bold;
+		}			
+	</style>
+	<script type="text/javascript">
+		var n1;
+		var n2;
+		var result;
+		var op;
+		function opplus(){
+			op="+";
+			n1=parseInt(document.cal.textbox.value);
+			document.cal.textbox.value="";
+		}
+		function opsub(){
+			op="-";
+			n1=parseInt(document.cal.textbox.value);
+			document.cal.textbox.value="";
+		}
+		function opmul(){
+			op="*";
+			n1=parseInt(document.cal.textbox.value);
+			document.cal.textbox.value="";
+		}
+		function opdiv(){
+			op="/";
+			n1=parseInt(document.cal.textbox.value);
+			document.cal.textbox.value="";
+		}
+		function opmod(){
+			op="%";
+			n1=parseInt(document.cal.textbox.value);
+			document.cal.textbox.value="";
+		}
+		function equalto(){
+			n2=parseInt(document.cal.textbox.value)
+			if(op == "+"){
+				result=n1 + n2;
+			}
+			if(op == "-"){
+				result=n1 - n2;
+			}
+			if(op == "*"){
+				result=n1 * n2;
+			}
+			if(op == "/"){
+				if(n2==0){
+					document.cal.textbox.value="0";
+				}
+				else
+				{
+				result=n1 / n2;
+			}
+			}
+			if(op == "%"){
+				if(document.cal.textbox.value="0"){
+					result=n1 / 100;
+				}
+				else if(document.cal.textbox.value!="0"){
+					result=n1 / n2 * 100;
+				}
+			}
+			document.cal.textbox.value="";
+		document.cal.textbox.value=result.toString();
+		
+		return;
+		}
+
+	</script>	
+</head>
+<body>
+<center>
+	<form name="cal" style="border:solid 2px black; width: 500px ; height: 540px; padding-top: 20px;background-color:#b3b3ff " >
+		<h3>Calculator</h3>
+		<input type="text" name="textbox" id="textbox" ><br/><br/>
+
+		<table>
+			
+			<tr>
+				<td><button type="button" onclick="cal.textbox.value+='9'">9</button></td>
+				<td><button type="button" onclick="cal.textbox.value+='8'">8</button></td>
+				<td><button type="button" onclick="cal.textbox.value+='7'">7</button></td>
+				<td><button type="button" onclick="opsub()">-</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="cal.textbox.value+='6'">6</button></td>
+				<td><button type="button" onclick="cal.textbox.value+='5'">5</button></td>
+				<td><button type="button" onclick="cal.textbox.value+='4'">4</button></td>
+				<td><button type="button" onclick="opmul()">*</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="cal.textbox.value+='3'">3</button></td>
+				<td><button type="button" onclick="cal.textbox.value+='2'">2</button></td>
+				<td><button  type="button" onclick="cal.textbox.value+='1'">1</button></td>
+				<td><button type="button" onclick="opdiv()">/</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button style="width:140px "  type="button" onclick="cal.textbox.value+='0'">0</button></td>
+				<td ><button  type="button" onclick="opmod()">%</button></td>
+				<td ><button  type="button" onclick="opplus()">+</button></td>	
+			</tr>
+			<tr>
+				<td colspan="2"><button style="width:140px " type="button" onclick="cal.textbox.value=''">CLEAR</button></td>
+				<td colspan="2"><button style="width:148px " type="button" onclick="equalto()">=</button></td>
+			</tr>
+		</table>
+		<h6 style="text-align: right;">PRSD...</h6>
+	</form>
+</center>
+</body>
+</html>
